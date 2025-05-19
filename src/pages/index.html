@@ -28,6 +28,14 @@
             </div>
         </div>
 
+        <div class="overlay"></div>
+        <div class="imgpop">
+            <div class="popup-content">
+                <img id="popup-img">
+                <button class="closes"></button>
+            </div>
+        </div>
+
         <div id="contents">
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -46,8 +54,9 @@
                 <div class="swiper-slide" aria-label="5 페이지">
                     {{> page5}}
                 </div>
-                
-
+                <div class="swiper-slide" aria-label="6 페이지">
+                    {{> page6}}
+                </div>
             </div>
             <!-- <div class="swiper-pagination"></div> -->
             </div>
@@ -84,15 +93,10 @@
                 }
             }
             });
-
-            
-
             document.querySelector('.menu-item-1')?.addEventListener('click', () => {
                 // Item 1 동작
                 swiper.slideTo(2)
             });
-
-
 
             document.querySelector('.page-1-click')?.addEventListener('click', () => {
                 document.querySelector('#popup1').classList.add('show');
@@ -105,29 +109,27 @@
                 })
             })
             
+            menuButton.addEventListener('click', () => {
+                menuButton.classList.toggle('on');
+                nav.classList.toggle('show');
+            });
+
+            const buttons = document.querySelectorAll('button[data-img]');
+            const overlay = document.querySelector('.overlay');
             
-            // 각 페이지의 paging 버튼 클릭 이벤트 추가
-            // document.querySelectorAll('.swiper-slide').forEach((slide, slideIndex) => {
-            //     slide.querySelectorAll('.paging button').forEach((button, buttonIndex) => {
-            //         button.addEventListener('click', () => {
-            //             swiper.slideTo(buttonIndex + 3);
-            //         });
-            //     });
-            // });
+            buttons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const img = button.getAttribute('data-img');
+                    document.querySelector('.imgpop').classList.add('show');
+                    overlay.classList.add('show');
+                    document.querySelector('#popup-img').src = `/assets/page4/p_img_${img}.png`;
+                })
+            })
 
-            // menuButton.addEventListener('click', () => {
-            //     menuButton.classList.toggle('on');
-            //     nav.classList.toggle('show');
-            // });
-
-            // document.querySelector('.popup-button')?.addEventListener('click', () => {
-            //     document.querySelector('.popup2').classList.toggle('show');
-            // });
-
-            // document.querySelector('.popup2')?.addEventListener('click', () => {
-            //     document.querySelector('.popup2').classList.remove('show');
-            // });
-
+            overlay.addEventListener('click', () => {
+                overlay.classList.remove('show');
+                document.querySelector('.imgpop').classList.remove('show');
+            })
             
         });
 

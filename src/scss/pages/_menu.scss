@@ -1,36 +1,16 @@
 
-.paging{
-  position: absolute;
-  bottom: 135px;
-  left: 35px;
-  right: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0 50px;
-  button{
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: #b2b2b2;
-    &.current{
-      background-color: #fecd00;
-      width: 46px;height: 46px;
-    }
-  }
-}
-
 #menuButton{
   position: absolute;
   top: 1880px;
   left: 65px;
   width: 125px;height: 96px;
-  background: url(/assets/images/menu.png) no-repeat 50% 50%;
+  background: url(/assets/images/x.png) no-repeat 50% 50%;
   transition: all 0.5s;
   &.on{
     background-image: url(/assets/images/x.png);
   }
 }
+
 #nav{
   position: absolute;
   z-index: 1000;
@@ -64,8 +44,9 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: url(/assets/images/menup.png) no-repeat 0 0;
+  background: url(/assets/images/menu.png) no-repeat 0 0;
   touch-action: none;
+
 }
 
 .home-button {
@@ -101,7 +82,7 @@
 .menu-item-3{left: 1360px;top: 1100px;}
 .menu-item-4{left: 851px;top: 1480px;}
 .menu-item-5{left: 315px;top: 1100px;}
-// .menu-item-6{left: 315px;top: 540px;}
+.menu-item-6{left: 315px;top: 540px;}
 
 
 .item-inner {
